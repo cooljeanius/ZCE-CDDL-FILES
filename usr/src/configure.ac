@@ -1,13 +1,22 @@
-#                                               -*- Autoconf -*-
-# Process this file with autoconf to produce a configure script.
+dnl#                                               -*- Autoconf -*-
+dnl# Process this file with autoconf to produce a configure script.
 
-AC_PREREQ(2.61)
-AC_INIT(FULL-PACKAGE-NAME, VERSION, BUG-REPORT-ADDRESS)
+AC_PREREQ([2.61])
+AC_INIT([ZCE-CDDL-FILES],[2012.09.14],[file:///dev/null])
 AC_CONFIG_SRCDIR([cmd/stat/common/common.c])
-AC_CONFIG_HEADER([config.h])
+AC_CONFIG_AUX_DIR([build-aux])
+AC_CONFIG_LIBOBJ_DIR([lib/libgnu])
+AC_CONFIG_MACRO_DIR([m4])
+AC_CONFIG_HEADER([config.h])dnl
+
+AM_INIT_AUTOMAKE([1.9 foreign])dnl
 
 # Checks for programs.
-AC_PROG_CC
+AC_USE_SYSTEM_EXTENSIONS
+AC_DEFUN([AC_REQUIRE_CC],[
+  AC_REQUIRE([AC_PROG_CC])dnl
+])dnl
+AC_REQUIRE_CC
 
 # Checks for libraries.
 
@@ -15,12 +24,23 @@ AC_PROG_CC
 AC_FUNC_ALLOCA
 AC_HEADER_DIRENT
 AC_HEADER_RESOLV
-AC_HEADER_STDC
+AC_DEFUN([AC_REQUIRE_HEADER_STDC],[
+  AC_REQUIRE([AC_HEADER_STDC])dnl
+])dnl
+AC_REQUIRE_HEADER_STDC
 AC_HEADER_MAJOR
 AC_HEADER_SYS_WAIT
-AC_CHECK_HEADERS([fcntl.h inttypes.h langinfo.h libintl.h limits.h locale.h malloc.h memory.h netdb.h netinet/in.h nl_types.h stddef.h stdint.h stdio_ext.h stdlib.h string.h strings.h sys/acl.h sys/file.h sys/fstyp.h sys/ioctl.h sys/mntent.h sys/mount.h sys/param.h sys/socket.h sys/statfs.h sys/statvfs.h sys/systeminfo.h sys/time.h sys/vfs.h syslog.h unistd.h utmp.h utmpx.h values.h wchar.h wctype.h])
+AC_CHECK_HEADERS([fcntl.h inttypes.h langinfo.h libintl.h limits.h locale.h \
+                  malloc.h malloc/malloc.h memory.h netdb.h netinet/in.h \
+                  nl_types.h stddef.h stdint.h stdio_ext.h stdlib.h string.h \
+                  strings.h sys/acl.h sys/file.h sys/fstyp.h sys/ioctl.h \
+                  sys/mntent.h sys/mount.h sys/param.h sys/socket.h \
+                  sys/statfs.h sys/statvfs.h sys/systeminfo.h sys/time.h \
+                  sys/vfs.h syslog.h unistd.h utmp.h utmpx.h values.h \
+                  wchar.h wctype.h])dnl
 
 # Checks for typedefs, structures, and compiler characteristics.
+AC_CHECK_HEADER_STDBOOL
 AC_C_CONST
 AC_TYPE_UID_T
 AC_C_INLINE
@@ -43,12 +63,15 @@ AC_TYPE_UINT32_T
 AC_TYPE_UINT64_T
 AC_TYPE_UINT8_T
 AC_C_VOLATILE
-AC_CHECK_TYPES([ptrdiff_t])
+AC_CHECK_TYPES([ptrdiff_t])dnl
 
 # Checks for library functions.
+AC_DEFUN([AC_LIBOBJ],[AC_MSG_NOTICE([skipping adding libobj for $1])])
+AC_DEFUN([AC_REPLACE_FUNCS],[AC_CHECK_FUNCS])
 AC_FUNC_CHOWN
 AC_FUNC_CLOSEDIR_VOID
-AM_GNU_GETTEXT
+AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_VERSION([0.19.8])
 AC_REPLACE_FNMATCH
 AC_FUNC_FORK
 AC_FUNC_FSEEKO
@@ -75,6 +98,20 @@ AC_FUNC_STRTOD
 AC_FUNC_UTIME_NULL
 AC_FUNC_VPRINTF
 AC_FUNC_WAIT3
-AC_CHECK_FUNCS([__fpending acl alarm bzero clock_gettime dup2 endgrent endpwent fchdir fdatasync ftime ftruncate getcwd getdelim gethostbyaddr gethostbyname gethostname gethrtime getmntent getpagesize getpass getspnam gettimeofday getusershell hasmntopt isascii iswprint lchown localtime_r mblen memchr memmove memset mkdir mkfifo munmap nl_langinfo pathconf pow putenv re_comp realpath regcmp regcomp resolvepath rmdir select setenv sethostname setlocale socket stime stpcpy strcasecmp strchr strcspn strdup strerror strncasecmp strndup strpbrk strrchr strspn strstr strtol strtoul strtoull strtoumax sysinfo tzset uname utime utmpname utmpxname wcwidth])
+AC_CHECK_FUNCS([__fpending acl alarm bzero clock_gettime dup2 endgrent \
+                endpwent fchdir fdatasync ftime ftruncate getcwd getdelim \
+                gethostbyaddr gethostbyname gethostname gethrtime getmntent \
+                getpagesize getpass getspnam gettimeofday getusershell \
+                hasmntopt isascii iswprint lchown localtime_r mblen memchr \
+                memmove memset mkdir mkfifo munmap nl_langinfo pathconf pow \
+                putenv re_comp realpath regcmp regcomp resolvepath rmdir \
+                select setenv sethostname setlocale socket stime stpcpy \
+                strcasecmp strchr strcspn strdup strerror strncasecmp \
+                strndup strpbrk strrchr strspn strstr strtol strtoul \
+                strtoull strtoumax sysinfo tzset uname utime utmpname \
+                utmpxname wcwidth])dnl
 
+# Output.
+AC_SUBST([top_builddir])dnl
+AC_CONFIG_FILES([Makefile po/Makefile.in po/Makevars])
 AC_OUTPUT
