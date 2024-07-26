@@ -20,10 +20,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXFileReference section */
-		A52A63CF160AD3E8001B611F /* output.0 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = output.0; sourceTree = "<group>"; };
-		A52A63D0160AD3E8001B611F /* requests */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = requests; sourceTree = "<group>"; };
-		A52A63D1160AD3E8001B611F /* traces.0 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = traces.0; sourceTree = "<group>"; };
-		A52A63D2160AD3E8001B611F /* autoscan.log */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = autoscan.log; sourceTree = "<group>"; };
 		A52A63D5160AD3E8001B611F /* pyzfs.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = pyzfs.py; sourceTree = "<group>"; };
 		A52A63D8160AD3E8001B611F /* common.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = common.c; sourceTree = "<group>"; };
 		A52A63D9160AD3E8001B611F /* statcommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = statcommon.h; sourceTree = "<group>"; };
@@ -77,7 +73,6 @@
 		A52A641C160AD3E9001B611F /* zpool_prop.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zpool_prop.c; sourceTree = "<group>"; };
 		A52A641D160AD3E9001B611F /* zprop_common.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zprop_common.c; sourceTree = "<group>"; };
 		A52A641E160AD3E9001B611F /* config.h.in */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = config.h.in; sourceTree = "<group>"; };
-		A52A641F160AD3E9001B611F /* config.log */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.log; sourceTree = "<group>"; };
 		A52A6420160AD3E9001B611F /* configure */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = configure; sourceTree = "<group>"; };
 		A52A6421160AD3E9001B611F /* configure.ac */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = configure.ac; sourceTree = "<group>"; };
 		A52A6422160AD3E9001B611F /* configure.scan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = configure.scan; sourceTree = "<group>"; };
@@ -1432,12 +1427,9 @@
 		A52A63CD160AD3E8001B611F /* src */ = {
 			isa = PBXGroup;
 			children = (
-				A52A63CE160AD3E8001B611F /* autom4te.cache */,
-				A52A63D2160AD3E8001B611F /* autoscan.log */,
 				A52A63D3160AD3E8001B611F /* cmd */,
 				A52A63F1160AD3E8001B611F /* common */,
 				A52A641E160AD3E9001B611F /* config.h.in */,
-				A52A641F160AD3E9001B611F /* config.log */,
 				A52A6420160AD3E9001B611F /* configure */,
 				A52A6421160AD3E9001B611F /* configure.ac */,
 				A52A6422160AD3E9001B611F /* configure.scan */,
@@ -1451,16 +1443,6 @@
 			name = src;
 			path = ../src;
 			sourceTree = SOURCE_ROOT;
-		};
-		A52A63CE160AD3E8001B611F /* autom4te.cache */ = {
-			isa = PBXGroup;
-			children = (
-				A52A63CF160AD3E8001B611F /* output.0 */,
-				A52A63D0160AD3E8001B611F /* requests */,
-				A52A63D1160AD3E8001B611F /* traces.0 */,
-			);
-			path = autom4te.cache;
-			sourceTree = "<group>";
 		};
 		A52A63D3160AD3E8001B611F /* cmd */ = {
 			isa = PBXGroup;
@@ -3503,6 +3485,8 @@
 /* Begin PBXProject section */
 		A52A63BF160AD3A5001B611F /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = A52A63C2160AD3A5001B611F /* Build configuration list for PBXProject "ZCE" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;

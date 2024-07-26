@@ -4,3 +4,6 @@ build/*
 *.pbxuser
 *.perspectivev3
 *.log
+*.xcuserstate
+*.xcuserdatad
+*/xcuserdata/*
